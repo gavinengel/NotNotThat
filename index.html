@@ -6,105 +6,6 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
-<script>
-
-//notnotthat
-//api key ea61abbf879c8cd605995a860703f119  -- the big thesaurus
-
-//http://words.bighugelabs.com/api/2/ea61abbf879c8cd605995a860703f119/umpire/json
-
-//http://words.bighugelabs.com/api/2/ea61abbf879c8cd605995a860703f119/bad/json
-
-
-// 44f0ee84-7e1d-4e73-b78f-b75d49 MW
-
-
-
-  //when thenot changes
-  function updatethenot(val){
-
-    document.getElementById("thenot").innerHTML = val;
-    document.getElementById("antonymfor").innerHTML = val + ' ?';
-    document.getElementById("getantonyms").style.display="inline-block";
-  }
-
-
-  function getAntonyms(){
-
-
-  var urlbase = 'http://words.bighugelabs.com/api',
-  version = '2',
-  key = 'ea61abbf879c8cd605995a860703f119',
-  format = 'json',
-  word = '';
-
-  word = document.getElementById("what").value;
-  var callbackfunction = 'mycallback';
-
-  url = urlbase + '/' +  version + '/' + key + '/' + word + '/' + format + '?callback=' + callbackfunction;
-
-//http://words.bighugelabs.com/apisample.php?v=2&format=json
-
-$.get(
-    url,
-    "{format=json}",
-    function(d) { 
-      for (o in d){
-        ants = d[o].ant;
-        for (a in ants){
-          console.log(ants[a]);
-        }
-      }
-     },
-    "jsonp"
-);
-
-
-  //var hr = new XMLHttpRequest();
-
-  //hr.open("GET", url, true);
-  //hr.onreadystatechange = function(){
-  //if (hr.readyState == 4 && hr.status == 200){
-  //var r = JSON.parse(hr.responseText);
-  //create array to sort return values
-  /*var keys = [],
-  i,
-  len,
-  k;
-  for (k in r){
-  if (r.hasOwnProperty(k)){
-  keys.push(k);}
-  }
-  keys.sort();
-  keys.reverse();
-  len = keys.length;
-  for (i = 0; i < len; i++){
-  k = keys[i];
-  makeInventory(r[k].item_name, r[k].url, keys[i], r[k].item_desc, r[k].quantity, r[k].price, r[k].ts, i);
-  }
-
-  
-
-  document.getElementById("responseText").innerHTML = hr.responseText;
-  //document.getElementById("jsoncell").innerHTML = "<pre>"+hr.responseText.substr(0, 50) +"...</pre>";
-  }
-  }
-  //hr.send();
-  document.getElementById("parsedinventory").innerHTML="processing data ...";
-  }
-
-
-http://words.bighugelabs.com/api/2/your-api-key/love/json?callback=my_callback_function
-
-mycallback = function(data){
-  alert(data.foo);
-
-  */
-}; 
-
-
-</script>
-
 
 
 <style>
@@ -147,7 +48,33 @@ input{
 </style>
 </head>
 <body>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '325329004339288',
+      xfbml      : true,
+      version    : 'v2.1'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
   <div class="container">
+    <div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
     <div class="head">
       <h1 class=title>Not Not That! </h1>
     </div>
@@ -158,18 +85,95 @@ input{
         <input type="text" id="subject" placeholder="Something"> is <em>not</em>: <input type="text" placeholder="What?" id="what" onchange="updatethenot(this.value);">!
       </p>
       <p>
-        <span readonly id="thenot"></span> is <em>not not</em>: <input type="text" placeholder="?" onchange="update" id>
-        <br><button class="btn btn-success" id="getantonyms" onclick="getAntonyms();return false;">Get Antonyms</button> <span id="antonymfor" />?</span>
+        <span readonly id="thenot"></span> is <em>not</em>: <input type="text" id="notnot" placeholder="?">
+        <br><button class="btn btn-default" id="getantonyms" onclick="getAntonyms();return false;">Suggestions?</button> <span id="antonymfor" /></span>
+        <br><button class="btn btn-warn" id="truth" onclick="getTruth();return false;">Truth?</button> <span id="antonymfor" /></span>
 
       </p>
-
-      <div id="responsetext"></div>
+      <div id="thetruth"></div>
+    
     </div>
-    <div class="footer">
+    <footer>
+  <hr>
       <img src="http://upload.wikimedia.org/wikipedia/commons/0/08/Hegel_portrait_by_Schlesinger_1831.jpg" class="phenomenal"> &copy; 2014 NTT Factories
-    </div>
+    </footer>
   </div>
 </p>
+
+<script>
+
+//notnotthat
+//api key ea61abbf879c8cd605995a860703f119  -- the big thesaurus
+
+//http://words.bighugelabs.com/api/2/ea61abbf879c8cd605995a860703f119/umpire/json
+
+//http://words.bighugelabs.com/api/2/ea61abbf879c8cd605995a860703f119/bad/json
+
+
+// 44f0ee84-7e1d-4e73-b78f-b75d49 MW
+
+
+
+  //when thenot changes
+  function updatethenot(val){
+
+    document.getElementById("thenot").innerHTML = val;
+    document.getElementById("getantonyms").style.display="inline-block";
+  }
+
+
+function fillnotnot(val){
+  document.getElementById("notnot").value=val;
+  //alert(val);
+}
+
+
+function getTruth(){
+  document.getElementById("thetruth").innerHTML = "It's not that " + document.getElementById("subject").value + " is <em> not</em> " + document.getElementById("notnot").value;
+
+}
+
+  function getAntonyms(){
+
+
+  var urlbase = 'http://words.bighugelabs.com/api',
+  version = '2',
+  key = 'ea61abbf879c8cd605995a860703f119',
+  format = 'json',
+  word = '';
+
+  word = document.getElementById("what").value;
+  var callbackfunction = 'mycallback';
+
+  url = urlbase + '/' +  version + '/' + key + '/' + word + '/' + format + '?callback=' + callbackfunction;
+
+//http://words.bighugelabs.com/apisample.php?v=2&format=json
+
+
+
+
+$.get(
+    url,
+    "{format=json}",
+    function(d) { 
+      for (o in d){
+        ants = d[o].ant;
+        for (a in ants){
+          console.log(ants[a]);
+          document.getElementById("antonymfor").innerHTML += "<button class='btn btn-success' onclick='fillnotnot(&quot;"+ants[a]+"&quot;);return false;' id='antbutton"+a+"'>"+(ants[a])+"</button>";
+        }
+      }
+     },
+    "jsonp"
+);
+
+
+}; 
+
+
+</script>
+
+
 </body>
 </html>
 
