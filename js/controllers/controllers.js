@@ -26,7 +26,8 @@ var NotNotControllers = angular.module('NotNotControllers', []);
         subject: newsubject,
         not: newnot
       });
-      console.log('nn length:' + notnots.length + notnots[2].not);
+      //console.log('nn length:' + notnots.length + notnots[2].not);
+
 
       };
     });

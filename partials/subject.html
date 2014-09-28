@@ -1,6 +1,6 @@
 
-<form role="form" ng-submit="processForm()">
-  <div class="form-group" ng-controller="NotNotController">{{test}}
+<form role="form" action="#/isnot/" ng-submit="processForm()">
+  <div class="form-group" >{{test}}
     <label for="person">Person, Place or Thing</label>
     <input id="subject" ng-model="subject" class="form-control subject" type="text" placeholder="Something .." required>
   </div>
@@ -8,7 +8,7 @@
     <label for="adjective">is <em>not</em></label>
     <input id="thenot" ng-model="thenot" class="form-control adjective" type="text" placeholder="What?" required>
   </div>   
-<a href="#/isnot"><button id="btn-click" type="submit" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-flash"></span>Next</button></a>
+<button id="btn-click" type="submit" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-flash"></span>Next</button>
 </form>
 
 
