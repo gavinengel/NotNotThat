@@ -6,10 +6,10 @@
   <h3>{{NotNotIsAre}}</h3>
   <div>
     <input ng-model="notnotnot" class="form-control adjective" type="text" placeholder="What?" required>
-  </div>   
-  <div>
-      <input type="button" class="btn-blue" ng-click="getAntonyms();">Suggestions?</button>
-      <span class="suggestions">...</span>
+      <a href="#/isnot" ng-click="getAntonyms();">Suggest?</a>
+      <select ng-model="suggestions" ng-options="ant.syn for ant in ants"></select>"
+    <option value=""></option>
+</select>
   </div>
 
 
@@ -17,7 +17,7 @@
 </form>
 
 
-
+</div>
 
 <!--
 

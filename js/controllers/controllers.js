@@ -57,10 +57,14 @@ NotNotControllers.controller('NotNotController', function ($scope, $location, $h
   console.log("l:" + notnots.length);
 
 
+    var ants = $scope.ants = [
+      {syn : "good"},
+      {syn : "ugly"}
+      ];
 
+   $scope.suggestions = $scope.ants[0];  
 
   $scope.getAntonyms = function() {
-
     var urlbase = 'http://words.bighugelabs.com/api',
     version = '2',
     key = 'ea61abbf879c8cd605995a860703f119',
@@ -74,34 +78,45 @@ NotNotControllers.controller('NotNotController', function ($scope, $location, $h
 
   //http://words.bighugelabs.com/apisample.php?v=2&format=json
 
-
-//var url = "http://public-api.wordpress.com/rest/v1/sites/wtmpeachtest.wordpress.com/posts?callback=JSON_CALLBACK";
-
+    var superants = [];
     $http.jsonp(url)
-      .success(function(data){
-          console.log('data.found');
-    });
-/*
-    $.get(
-        url,
-        "{format=json}",
-        function(d) { 
-          for (o in d){
-            ants = d[o].ant;
-            for (a in ants){
-              console.log(ants[a]);
-              document.getElementById("antonymfor").innerHTML += "<button class='btn btn-success' onclick='fillnotnot(&quot;"+ants[a]+"&quot;);return false;' id='antbutton"+a+"'>"+(ants[a])+"</button>";
-            }
-          }
-         },
-        "jsonp"
-    );
-*/
-  }
-  
+      .success(function(d){
+
+        for (o in d){
+        superants = d[o].ant;
+        for (a in superants){
+          $scope.ants.push({
+            syn: superants[a]
+          });
+          console.log(superants[a]);
+          //document.getElementById("antonymfor").innerHTML += "<button class='btn btn-success' onclick='fillnotnot(&quot;"+ants[a]+"&quot;);return false;' id='antbutton"+a+"'>"+(ants[a])+"</button>";
+        }
+      }
+          /*.log('data.found');
+          //$scope.ants = d;
+        for (o in d){
+          console.log(d[o].syn);
+          superants += d[o].syn;
+          for (ant in superants){
+            console.log(ant);
+            //*$scope.ants.push({
+              //syn: a
+            //});
+            //console.log(ants[a]);
+            //$scope.antonyms += "<button class='btn btn-success' onclick='fillnotnot(&quot;"+ants[a]+"&quot;);return false;' id='antbutton"+a+"'>"+(ants[a])+"</button>";
+          
+        }
+    
+        };
+    */
+      });
+    
+  };
+
   $scope.processNotNot = function (){
     console.log('in processNotNot');
   };
+
 });
 
 //  TruthController
