@@ -1,5 +1,46 @@
-<div ng-controller="IsNotController">
+<div>
 
-  isnot.html
+
+  <form role="form" action="#/ItIsntThat" ng-submit="processNotNot()">
+  <h2>{{SubjectIsNot}}</h2>
+  <h3>{{NotNotIsAre}}</h3>
+  <div>
+    <input ng-model="notnotnot" class="form-control adjective" type="text" placeholder="What?" required>
+  </div>   
+  <div>
+      <input type="button" class="btn-blue" ng-click="getAntonyms();">Suggestions?</button>
+      <span class="suggestions">...</span>
+  </div>
+
+
+<h3><button id="btn-click" type="submit" class="btn-green">Truth <span class="glyphicon glyphicon-hand-right"></span></button></h3>
+</form>
+
+
+
+
+<!--
+
+        <p>
+          <span readonly id="thenot" ng-model="thenot"></span> is <em>not</em>: <input type="text" id="notnot" placeholder="?">
+          <br><button class="btn btn-large" id="getantonyms" onclick="getAntonyms();return false;">Suggestions?</button> <span id="antonymfor" /></span>
+          <br><button class="btn btn-warn" id="truth" onclick="getTruth();return false;">Truth?</button> <span id="antonymfor" /></span>
+
+        </p>
+        <div id="thetruth"></div>
+      <div class="footer ">
+      <hr>
+        <img src="http://upload.wikimedia.org/wikipedia/commons/0/08/Hegel_portrait_by_Schlesinger_1831.jpg" class="phenomenal"> &copy; 2014 NTT Factories
+      </footer>
+    </div>
+      </div>
+
+-->
+
+
+
+
+
+
 
 </div>

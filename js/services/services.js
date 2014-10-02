@@ -5,6 +5,7 @@
 var NotNotServices = angular.module('NotNotServices', []);
 
 NotNotServices.factory('storageService', function(){
+    console.log("in factory");
     return {
       get: function (key) {
         return JSON.parse(localStorage.getItem(key) || '[]');

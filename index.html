@@ -16,6 +16,8 @@
     <script src="js/controllers/controllers.js"></script>
     <script type="text/javascript" src="js/js.js"></script>
     <script type="text/javascript" src="js/fb.js"></script>
+    <link rel="shortcut icon" href="/favicon.ico?v=2" />
+
 </head>
 
 
@@ -23,45 +25,23 @@
 </head>
 <body>
 
-    <div class="main">
-      <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
-
-<div id="status">
-</div>
-      <h1 class="title">Not Not That! </h1>
+<div class="main">
+      <h1 class="title"><a href="#/">Not Not That</a></h1>
       <hr>
       <div class="app" ng-view></div> 
       <hr>
 
 
 
-  <div class="container">
     <div
     class="fb-like"
     data-share="true"
     data-width="0"
-    data-show-faces="false">
+    data-show-faces="false"><div class=status></div>
+    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
     </div>
 
-          <input type="text" id="subject" ng-model="subject" placeholder="Something"> is <em>not</em>: <input type="text" placeholder="What?" id="what" onchange="updatethenot(this.value);">!
-        </p>
-        <p>
-          <span readonly id="thenot" ng-model="thenot"></span> is <em>not</em>: <input type="text" id="notnot" placeholder="?">
-          <br><button class="btn btn-large" id="getantonyms" onclick="getAntonyms();return false;">Suggestions?</button> <span id="antonymfor" /></span>
-          <br><button class="btn btn-warn" id="truth" onclick="getTruth();return false;">Truth?</button> <span id="antonymfor" /></span>
-
-        </p>
-        <div id="thetruth"></div>
-      <div class="footer ">
-      <hr>
-        <img src="http://upload.wikimedia.org/wikipedia/commons/0/08/Hegel_portrait_by_Schlesinger_1831.jpg" class="phenomenal"> &copy; 2014 NTT Factories
-      </footer>
-    </div>
-      </div>
-
-  </p>
-
+         
 </body>
 </html>
 

@@ -6,12 +6,12 @@ var NotNotApp = angular.module("NotNotApp", ['ngRoute', 'NotNotControllers', 'No
     $routeProvider
       .when('/',
       {
-        controller: 'NotNotController',
+        controller: 'NotController',
         templateUrl: 'partials/subject.html'
         })
       .when('/isnot',
           {
-            controller: 'IsNotController',
+            controller: 'NotNotController',
             templateUrl: 'partials/isnot.html'
           })
       .otherwise({
@@ -19,3 +19,6 @@ var NotNotApp = angular.module("NotNotApp", ['ngRoute', 'NotNotControllers', 'No
         });
 
     });
+
+
+
