@@ -49,11 +49,33 @@ NotNotControllers.controller('NotController', function ($scope, $location, stora
 //  NotController
 NotNotControllers.controller('NotNotController', function ($scope, $location, $http, storageService) {
 
+  $scope.suggest = "Suggest?";
+
+
   $scope.setnotnotnot = function (){
     $scope.notnotnot = $scope.suggestions.syn;
+    $scope.showants = false;
   }
 
 
+
+        $scope.isaretoggle = "is not";
+
+        $scope.toggleisare = function(){
+          if ($scope.isaretoggle == "is not") { 
+            $scope.isaretoggle = "are not";
+          }else{
+            $scope.isaretoggle = "is not";
+          }
+        }
+
+  // is are dropdown, set to is     
+  $scope.verbs = [
+                {tense:'is not'},
+                {tense:'are not'}
+                ];
+  
+  $scope.verbtense = $scope.verbs[0]; // is
 
 
 
@@ -122,27 +144,11 @@ NotNotControllers.controller('NotNotController', function ($scope, $location, $h
       }
 
 
-          /*.log('data.found');
-          //$scope.ants = d;
-        for (o in d){
-          console.log(d[o].syn);
-          superants += d[o].syn;
-          for (ant in superants){
-            console.log(ant);
-            //*$scope.ants.push({
-              //syn: a
-            //});
-            //console.log(ants[a]);
-            //$scope.antonyms += "<button class='btn btn-success' onclick='fillnotnot(&quot;"+ants[a]+"&quot;);return false;' id='antbutton"+a+"'>"+(ants[a])+"</button>";
-          
-        }
+  
     
-        };
 
-    */
-    $scope.suggestions=ants[3].syn;
       }).error(function(d) {
-    console.log("no results found;");
+        $scope.suggest = "no results found; roll your own";
 
       });
     
