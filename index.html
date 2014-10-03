@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Not Not That!</title>
+  <title>Its Not That</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="style/NotNotThat.css">
     <script src="bower_components/angular/angular.js"></script>
@@ -24,24 +24,22 @@
 
 </head>
 <body>
+ 
+  <div class="main">
 
-<div class="main">
-      <h1 class="title"><a href="#/">Not Not That</a></h1>
-      <hr>
-      <div class="app" ng-view></div> 
-      <hr>
-
-
-
-    <div
-    class="fb-like"
-    data-share="true"
-    data-width="0"
-    data-show-faces="false"><div class=status></div>
-    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+    <div class="appheader">
+      
+      <h1 class="title"><a href="#/">INT</a></h1>
     </div>
-
-         
+    <hr>
+    <div class="appbody" ng-view></div> 
+    <hr>
+    <span class="upperright">
+        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+        
+      </span>
+    </div>
+      
 </body>
 </html>
 

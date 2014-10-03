@@ -2,18 +2,21 @@
 
 
   <form role="form" action="#/ItIsntThat" ng-submit="processNotNot()">
-  <h2>{{SubjectIsNot}}</h2>
+  <h2><a href="#/isnot" class="subjectnot" ng-click="getSyns();">{{SubjectIsNot}}</a></h2>
+      <select ng-model="suggestedsyns" selected-item="selected.item" ng-change = "setnotnotnot();" ng-options="ant.syn for ant in ants" ng-show="showants"></select>
   <h3>{{NotNotIsAre}}</h3>
   <div>
     <input ng-model="notnotnot" class="form-control adjective" type="text" placeholder="What?" required>
       <a href="#/isnot" ng-click="getAntonyms();">Suggest?</a>
-      <select ng-model="suggestions" ng-options="ant.syn for ant in ants"></select>"
+      <select ng-model="suggestions" selected-item="selected.item" ng-change = "setnotnotnot();" ng-options="ant.syn for ant in ants" ng-show="showants"></select>
+    <!-- <ul ng-model="suggestions"><li ng-repeat="ant in ants track by $index" ></li></ul> -->
+
     <option value=""></option>
 </select>
   </div>
 
 
-<h3><button id="btn-click" type="submit" class="btn-green">Truth <span class="glyphicon glyphicon-hand-right"></span></button></h3>
+<h3><a href="#/subject"><button id="btn-click" class="btn btn-warning"><span class="glyphicon glyphicon-hand-left"></span>&nbsp;Refactor</button></a><button id="btn-click" type="submit" class="btn btn-success">Truth <span class="glyphicon glyphicon-hand-right"></span></button></h3>
 </form>
 
 

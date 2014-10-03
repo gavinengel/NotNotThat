@@ -3,28 +3,146 @@ html {
   font-size: 16px;
 }
 body {
-  background: #ffffff;
-  color: #000;
+  background: #fafafa;
+  color: #333333;
   font-size: 1em;
   font-family: "Ubuntu",Tahoma,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+
+
+h1 {
+  font-size: 2.3em;
+  font-weight: bold;
+  color: #fafafa;
 }
 
-a, a:visited {
+h1 a{
+  text-decoration: none;
+}
+a {
+  color:#e2c822;
+  text-decoration: none;
+  underline: none;
+}
+
+a:visited{
+   color:#red;
+  text-decoration: none;
+  underline: none; 
+}
+
+a:hover{
+  color: #fff9d7;
   text-decoration: none;
 }
 
+label{
+  font-size: 1.3em;
+}
+
+input [text]{
+  border: 0px none;
+  font-size: 3em;
+}
+
+::-webkit-input-placeholder {
+ font-size: 1.3em;
+ color: #d0cdfa;
+ text-transform: uppercase;
+ text-transform: uppercase;
+ text-align: center;
+ font-weight: bold;
+}
+:-moz-placeholder { /* older Firefox*/
+ font-size:14px;
+ color: #d0cdfa;
+ text-transform: uppercase;
+ text-align: center;
+ font-weight: bold;
+}
+::-moz-placeholder { /* Firefox 19+ */ 
+ font-size: 14px;
+ color: #d0cdfa; 
+ text-transform: uppercase;
+ text-align: center;
+ font-weight: bold;
+} 
+:-ms-input-placeholder { 
+ font-size: 14px; 
+ color: #d0cdfa;
+ text-transform: uppercase;
+ text-align: center;
+ font-weight: bold;
+}
+
+
+select {
+    width: 100%; /* Set width. Do not set height else it will fail in IE8-10. Use padding for height. */
+    color: #999;
+    font-weight: bold;
+    font-size: 1em;
+    line-height:1.2em;
+    margin: 0 0 10px;
+    padding: 6px; /* use this to set a specific height for your dropdown (DO NOT use the attribute 'height') */
+    border: 1;
+    cursor: pointer;
+    text-indent: 0.01px;
+    text-align: center;
+    text-overflow: "";
+    -webkit-appearance: none; /* gets rid of default appearance in Webkit browsers*/
+    -moz-appearance: none; /* Get rid of default appearance for older Firefox browsers */
+    -ms-appearance: none; /* get rid of default appearance for IE8, 9 and 10*/
+    appearance: none;
+}
+select option {
+    background: #fff; /* style the dropdown bg color */
+}
+
+
+input[type=text] {
+background: white;
+border: 0px none;
+border-radius: 8px;
+box-shadow: 0 0 3px #DDD inset;
+color: #666;
+padding: 5px 10px;
+outline: none;
+}
+
+
+.appheader{
+  background: #3b5998;
+  border: 1px solid;
+  border-color: #cccccc;
+  border-top-right-radius: 8px;
+  border-top-left-radius:   8px;
+  padding: 10px;
+  text-align: center;
+}
+
+.appbody{
+  padding: 12px;
+  font-weight: bold;
+  font-size 1.3: 
+}
 .main{
-  color: #000;
+  color: #666666;
   width: 60%;
-  max-width: 350px;
+  max-width: 461px;
   margin: auto;
-  background: #fafafa;
+  background: #f7f7f7;
+  border: 1px solid;
+  border-color: #cccccc;
+  border-radius: 8px;
+  text-align: center;
 
 }
-.title{
-  color: #01579b;
+
+.title {
+  color: #e2c822;
   font-size: 3em;
   word-spacing: -0.125em;
+  text-decoration: none;
 
 }
 
@@ -39,7 +157,7 @@ input{
 }
 
 .btn-next{
-  background: #e51c23;
+  background: #42bd41;
   color: #fff; 
 }
 
@@ -48,12 +166,10 @@ input{
   color: #fff; 
 }
 
-
-
-
-.app{
-  font-size: 1em;
+.upperright{
+  float: left;
 }
+
 
 .phenomenal{
   float: none;

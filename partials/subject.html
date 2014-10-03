@@ -1,16 +1,15 @@
 
 <form role="form"  ng-submit="processForm();">
   <div class="form-group" >
-   <label for="person">Person, Place or Thing</label>
-    <input id="subject" ng-model="subject" class="form-control subject" type="text" placeholder="Something .." required>
+    <input id="subject" ng-model="subject" class="form-control subject" type="text" placeholder="Something ..." required>
   </div>
   <div class="form-group">
     <label for="adjective">
-        <select ng-model="verbtense" ng-options="verb.tense for verb in verbs"></select><br>
+        <em><select ng-model="verbtense" ng-options="verb.tense for verb in verbs"></select></em><br>
     </label>
     <input id="thenot" ng-model="thenot" class="form-control adjective" type="text" placeholder="What?" required>
      
-<h3><button id="btn-click" type="submit" class="btn-next"><span class="glyphicon glyphicon-flash"></span>Next</button></h3>
+<h3><button id="btn-click" type="submit" class="btn btn-danger">Next&nbsp;<span class="glyphicon glyphicon-hand-right"></span></button></h3>
 </form>
 
 

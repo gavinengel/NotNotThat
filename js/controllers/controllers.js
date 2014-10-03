@@ -49,6 +49,17 @@ NotNotControllers.controller('NotController', function ($scope, $location, stora
 //  NotController
 NotNotControllers.controller('NotNotController', function ($scope, $location, $http, storageService) {
 
+  $scope.setnotnotnot = function (){
+    $scope.notnotnot = $scope.suggestions.syn;
+  }
+
+
+
+
+
+  //hide suggestion box until needed
+  $scope.showants = false;
+
   //retrieve the notnots
   var notnots = $scope.notnots = storageService.get('notnot');
 
@@ -58,31 +69,48 @@ NotNotControllers.controller('NotNotController', function ($scope, $location, $h
 
 
     var ants = $scope.ants = [
-      {syn : "good"},
-      {syn : "ugly"}
+      {syn : "..."}
       ];
 
    $scope.suggestions = $scope.ants[0];  
 
+
+   $scope.getSyns = function(){
+    null;
+   }
+
+
+
   $scope.getAntonyms = function() {
+
+        //thesaurus settings 
     var urlbase = 'http://words.bighugelabs.com/api',
     version = '2',
     key = 'ea61abbf879c8cd605995a860703f119',
     format = 'json',
-    word = '';
+    word;
 
-    word = SubjectIsNot;
+
     var callback = 'JSON_CALLBACK';
-
+    word = SubjectIsNot;
     url = urlbase + '/' +  version + '/' + key + '/' + word + '/' + format + '?callback='+callback;
+
+
+    // set the lookup word, which is part of the url
+
 
   //http://words.bighugelabs.com/apisample.php?v=2&format=json
 
     var superants = [];
     $http.jsonp(url)
       .success(function(d){
+        //show suggestion box until needed
+        $scope.showants = true;
+
+
 
         for (o in d){
+               console.log('d0: ' + d[o].ant);
         superants = d[o].ant;
         for (a in superants){
           $scope.ants.push({
@@ -92,6 +120,8 @@ NotNotControllers.controller('NotNotController', function ($scope, $location, $h
           //document.getElementById("antonymfor").innerHTML += "<button class='btn btn-success' onclick='fillnotnot(&quot;"+ants[a]+"&quot;);return false;' id='antbutton"+a+"'>"+(ants[a])+"</button>";
         }
       }
+
+
           /*.log('data.found');
           //$scope.ants = d;
         for (o in d){
@@ -108,7 +138,12 @@ NotNotControllers.controller('NotNotController', function ($scope, $location, $h
         }
     
         };
+
     */
+    $scope.suggestions=ants[3].syn;
+      }).error(function(d) {
+    console.log("no results found;");
+
       });
     
   };
