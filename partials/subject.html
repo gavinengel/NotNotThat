@@ -1,11 +1,10 @@
 
 <form role="form"  ng-submit="processForm();">
   <div class="form-group" >
-    <input id="subject" ng-model="subject" class="form-control subject" type="text" placeholder="Something ..." required>
+    <input id="subject" ng-model="subject" class="form-control subject" type="text" placeholder="Enter Something or FLASH! if You Are Dumb" required><span class="GetRandomWord" ng-click="GetRandomWord();"><span class="glyphicon glyphicon-flash"></span></span>
   </div>
   <div class="form-group">
-    <label for="adjective">
-        <em><select ng-model="verbtense" ng-options="verb.tense for verb in verbs"></select></em><br>
+    <br><em><div ng-click="toggleisare();" class="isare"> {{isaretoggle}} </div></em><br>
     </label>
     <input id="thenot" ng-model="thenot" class="form-control adjective" type="text" placeholder="What?" required>
      

@@ -5,28 +5,54 @@ var NotNotControllers = angular.module('NotNotControllers', []);
 
   
 //  NotController
-NotNotControllers.controller('NotController', function ($scope, $location, storageService) {
+NotNotControllers.controller('NotController', function ($scope, $http, $location, storageService) {
+
+  // get a random word if selected
+  $scope.GetRandomWord = function (){
+
+    var url = "http://randomword.setgetgo.com/get.php?callback=JSON_CALLBACK";
+    $http.jsonp(url)
+      .success(function(d){
+        for (o in d){
+               $scope.subject = d[o];
+        }
+      
+      }).error(function(d) {
+        console.log('error');
+
+      });
+    
+  };
+
+
+  //set the is/are variable
+        $scope.isaretoggle = "is not";
+
+        $scope.toggleisare = function(){
+          if ($scope.isaretoggle == "is not") { 
+            $scope.isaretoggle = "are not";
+          }else{
+            $scope.isaretoggle = "is not";
+          }
+        }
 
 
   //get the nots, maybe delete them?
-  var notnots = $scope.notnots = storageService.get('notnot');
-
+  var notnots = storageService.get('notnot');
   console.log("l:" + notnots.length);
 
-  // is are dropdown, set to is     
-  $scope.verbs = [
-                {tense:'is not'},
-                {tense:'are not'}
-                ];
-  
-  $scope.verbtense = $scope.verbs[0]; // is
+    for (thing in notnots){
+      console.log(notnots[thing].not);
+    }
+
+
 
 
   // process the form, maybe turn to service and/or seperate controller
   $scope.processForm = function() {
       var subject = $scope.subject.trim();
       var not = $scope.thenot.trim();
-      var isare = $scope.verbtense.tense;
+      var isare = $scope.isaretoggle
       if (!subject.length) {
       return;
     }
@@ -49,18 +75,18 @@ NotNotControllers.controller('NotController', function ($scope, $location, stora
 //  NotController
 NotNotControllers.controller('NotNotController', function ($scope, $location, $http, storageService) {
 
+  //for showing and hiding the Suggest view
   $scope.suggest = "Suggest?";
+  $scope.isaretoggle = "is not";
 
 
+  //
   $scope.setnotnotnot = function (){
     $scope.notnotnot = $scope.suggestions.syn;
     $scope.showants = false;
   }
 
-
-
-        $scope.isaretoggle = "is not";
-
+  
         $scope.toggleisare = function(){
           if ($scope.isaretoggle == "is not") { 
             $scope.isaretoggle = "are not";
@@ -86,7 +112,8 @@ NotNotControllers.controller('NotNotController', function ($scope, $location, $h
   var notnots = $scope.notnots = storageService.get('notnot');
 
   var SubjectIsNot = $scope.SubjectIsNot = notnots[notnots.length-1].not; 
-  $scope.NotNotIsAre = notnots[notnots.length-1].isare;
+  var NotNotIsAre = $scope.NotNotIsAre = notnots[notnots.length-1].isare;
+  
   console.log("l:" + notnots.length);
 
 
@@ -142,11 +169,6 @@ NotNotControllers.controller('NotNotController', function ($scope, $location, $h
           //document.getElementById("antonymfor").innerHTML += "<button class='btn btn-success' onclick='fillnotnot(&quot;"+ants[a]+"&quot;);return false;' id='antbutton"+a+"'>"+(ants[a])+"</button>";
         }
       }
-
-
-  
-    
-
       }).error(function(d) {
         $scope.suggest = "no results found; roll your own";
 
@@ -155,7 +177,26 @@ NotNotControllers.controller('NotNotController', function ($scope, $location, $h
   };
 
   $scope.processNotNot = function (){
-    console.log('in processNotNot');
+    alert('notnotnot is: ' + $scope.notnotnot);
+    
+
+      notnots.push({
+      subject: notnots[length-1].subject,
+      not: notnots[length-1].not,
+      isare: notnots[length-1].isare, //look at original comp
+      notnotnot: $scope.notnotnot  //only new value pretty lazy array work
+    });
+
+    console.log('notnotnot from array: ' + notnots[notnots.length-1].notnotnot);
+    console.log('not from array: ' + notnots[notnots.length-1].not);
+    console.log('subject from array: ' + notnots[notnots.length-1].subject);
+        console.log('isare from array: ' + notnots[notnots.length-1].isare);
+
+    storageService.set('notnot', notnots);
+
+    $location.path('/truth');
+    return false;
+
   };
 
 });
@@ -168,7 +209,8 @@ NotNotControllers.controller('TruthController', function ($scope, $location, sto
 
   $scope.Subject = notnots[notnots.length-1].subject; 
   $scope.IsAre = notnots[notnots.length-1].isare;
-  $scope.NotNot = "BLAM!";
+  $scope.Not = notnots[notnots.length-1].not;
+  $scope.NotNotNot = notnots[notnots.length-1].notnotnot;
   console.log("l:" + notnots.length);
 
 

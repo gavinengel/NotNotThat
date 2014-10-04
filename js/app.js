@@ -14,6 +14,11 @@ var NotNotApp = angular.module("NotNotApp", ['ngRoute', 'NotNotControllers', 'No
             controller: 'NotNotController',
             templateUrl: 'partials/isnot.html'
           })
+      .when('/truth',
+          {
+            controller: 'TruthController',
+            templateUrl: 'partials/truth.html'
+      })
       .otherwise({
         redirectTo: '/'
         });
