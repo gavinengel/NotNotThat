@@ -77,13 +77,13 @@ $scope.IPA();
 
 
   //set the is/are variable
-        $scope.isaretoggle = "is not";
+        $scope.isaretoggle = "is too";
 
         $scope.toggleisare = function(){
-          if ($scope.isaretoggle == "is not") { 
-            $scope.isaretoggle = "are not";
+          if ($scope.isaretoggle == "is too") { 
+            $scope.isaretoggle = "are too";
           }else{
-            $scope.isaretoggle = "is not";
+            $scope.isaretoggle = "is too";
           }
         }
 
@@ -270,12 +270,12 @@ NotNotControllers.controller('NotNotController', function ($scope, $location, $h
 
 //  TruthController
 NotNotControllers.controller('TruthController', function ($scope, $location, storageService) {
-  $scope.isaretoggle = "is not";
+  $scope.isaretoggle = "is too";
           $scope.toggleisare = function(){
-          if ($scope.isaretoggle == "is not") { 
-            $scope.isaretoggle = "are not";
+          if ($scope.isaretoggle == "is too") { 
+            $scope.isaretoggle = "are too";
           }else{
-            $scope.isaretoggle = "is not";
+            $scope.isaretoggle = "is too";
           }
         }
 
@@ -338,8 +338,6 @@ NotNotControllers.controller('EvolutionController', function ($scope, $location,
 
 
   $scope.processTruth = function(){
-
-
     
       $scope.notnots.push({
       subject: $scope.notnots[$scope.notnots.length-1].subject,
