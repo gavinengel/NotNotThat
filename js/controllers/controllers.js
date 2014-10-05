@@ -244,7 +244,7 @@ NotNotControllers.controller('NotNotController', function ($scope, $location, $h
   //yandex api dict.1.1.20141004T051337Z.1b103fb9bc14258f.a9cce070b0b46169cf864b7e2752dba3a621492c
 
   $scope.processNotNot = function (){
-    alert('notnotnot is: ' + $scope.notnotnot);
+
     
 
       $scope.notnots.push({
