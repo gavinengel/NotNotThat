@@ -10,7 +10,7 @@ module.exports = {
 	'twitterAuth' : {       
 		'consumerKey' 		: 'CL00hT1rQJ1ejLaEKJKcxksHt',
 		'consumerSecret' 	: 'HalRfyJI2HWPgb2sBkM4BtreHhffFyE51Ivja2alwVwWnYLivr',
-		'callbackURL' 		: 'http://127.0.0.1:8080/auth/twitter/callback'
+		'callbackURL' 		: 'http://kethle.com/auth/twitter/callback'
 	},
 
 	'googleAuth' : {
