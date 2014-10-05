@@ -2,9 +2,9 @@
 module.exports = {
 
 	'facebookAuth' : {
-		'clientID' 		: '823631677658921', // your App ID
-		'clientSecret' 	: '8011420a7b0b33aa1d80af645f145b74', // your App Secret
-		'callbackURL' 	: 'http://kethle.com:8080/auth/facebook/callback'
+		'clientID' 		: '325329004339288', // your App ID
+		'clientSecret' 	: '1fd65712b217a176ca280e479b1e3b65', // your App Secret
+		'callbackURL' 	: 'http://kethle.com/auth/facebook/callback'
 	},
 
 	'twitterAuth' : {       
@@ -16,7 +16,7 @@ module.exports = {
 	'googleAuth' : {
 		'clientID' 		: '581320313455-3qjgtaqg5p3eepgm5ijf2qfjnckncjqu.apps.googleusercontent.com',
 		'clientSecret' 	: 'ZpzUcyDCjDAkZ_jklu7iUnal',
-		'callbackURL' 	: 'http://kethle.com:8080/auth/google/callback'
+		'callbackURL' 	: 'http://kethle.com/auth/google/callback'
 	}
 
 };

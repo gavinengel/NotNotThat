@@ -25,8 +25,8 @@ var session      = require('express-session');
 // configuration ===========================================
   
 // config files
-var db = require('./config/db');
-//var configDB = require('./config/database.js'); qm
+//var db = require('./config/db');
+var configDB = require('./config/database.js'); 
 
 require('./config/passport')(passport); // pass passport for configuration
 
