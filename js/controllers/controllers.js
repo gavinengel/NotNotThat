@@ -3,9 +3,58 @@
 //controller collection
 var NotNotControllers = angular.module('NotNotControllers', []);
 
+
+
+// Common directive for Focus
+
+angular.module('NotNotApp').directive('focus',
+
+function($timeout) {
+
+return {
+
+scope : {
+
+ trigger : '@focus'
+
+ },
+
+ link : function(scope, element) {
+ 
+ scope.$watch('trigger', function(value) {
   
+  if (value === "true") {
+   
+   $timeout(function() {
+   
+   element[0].focus();
+
+   });
+  }
+ });
+   }
+
+  };
+
+ }
+
+); 
+   
+
+
 //  NotController
 NotNotControllers.controller('NotController', function ($scope, $http, $location, storageService) {
+ 
+  $scope.IPA = function(){
+    $http.jsonp('http://jsonip.com?callback=JSON_CALLBACK')
+      .success(function(json){
+        console.log("IP is " + json.ip)
+      });
+
+  }
+
+
+$scope.IPA();
 
   localStorage.clear();
 
@@ -158,6 +207,9 @@ NotNotControllers.controller('NotNotController', function ($scope, $location, $h
 
     // set the lookup word, which is part of the url
 
+    // https://dictionary.yandex.net/api/v1/dicservice.json/lookup?key=API&lang=en-ru&text=time&callback=myCallback
+    //api key 
+
 
   //http://words.bighugelabs.com/apisample.php?v=2&format=json
 
@@ -186,6 +238,10 @@ NotNotControllers.controller('NotNotController', function ($scope, $location, $h
       });
     
   };
+
+  // google translate AIzaSyCkzQMyNxAk4DUBFalmTrRK21Q9dK0MZKA
+
+  //yandex api dict.1.1.20141004T051337Z.1b103fb9bc14258f.a9cce070b0b46169cf864b7e2752dba3a621492c
 
   $scope.processNotNot = function (){
     alert('notnotnot is: ' + $scope.notnotnot);

@@ -1,0 +1,89 @@
+
+
+<html>
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services/services.js"></script>
+    <script src="js/controllers/controllers.js"></script>
+    <script type="text/javascript" src="js/js.js"></script>
+    <!--<script type="text/javascript" src="js/fb.js"></script> -->
+    <link rel="shortcut icon" href="/favicon.ico?v=2" />
+</head>
+
+<body data-ng-app="NotDictApp">
+
+<script>
+
+
+
+var NotDictApp = angular.module("NotDictApp", ['ngRoute', 'NotDictControllers']);
+
+
+
+//controller collection
+var NotDictControllers = angular.module('NotDictControllers', []);
+
+NotDictControllers.controller('NotDictController', function ($scope, $http, $location) {
+
+  //cambridge https://dictionary.cambridge.org/api/v1
+
+  //var api = "dict.1.1.20141004T051337Z.1b103fb9bc14258f.a9cce070b0b46169cf864b7e2752dba3a621492c";
+  //var url = "https://dictionary.yandex.net/api/v1/dicservice.json/lookup?key="+api+"&lang=en-en&text=cat&callback=JSON_CALLBACK";
+  
+  //trends url
+
+//  var url = "http://hawttrends.appspot.com/api/terms/";
+
+var url = "http://api.automeme.net/text.json";
+
+  $scope.CallAPI = function(){
+
+
+  $http.get(' ')
+      .success(function(d){
+
+        console.log(d[0])
+      
+      }).error(function(d) {
+        console.log('error');
+
+      });
+    
+  }
+
+});
+
+
+
+
+function sendMessage(service, message, user){
+$.ajax({
+  url: 'http://signaltrigger.com/v1/?token=mewvYILDwpnB5P',
+  type: 'post',
+  data: {
+    service: "sms",
+     message: "Magic",
+    user: "603-812-1638"
+  }
+});
+}
+</script>
+<div id="status"></div>
+<div ng-controller="NotDictController">
+
+<button ng-click="CallAPI();">call api</button>
+
+
+
+</div>
+
+<div>
+<button onclick="sendMessage('sms', 'whats up', '603-812-1638');">send message</button>
+</div>
+</body>
+</html>

@@ -26,18 +26,18 @@
 
 </head>
 <body>
- 
+ <div id=status></div>
   <div class="main">
 
     <div class="appheader">
       
-      <div class="title"><a href="#/" style="color:#F3FFE2;">IT'S NOT THAT</a></div>
+      <div class="title"><a href="#" style="color:#F3FFE2;">ITS NOT THAT</a></div>
     </div>
     <hr>
     <div class="appbody" ng-view></div> 
     <hr>
     <span class="upperright">
-        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+        <fb:login-button scope="public_profile,email,user_friends" onlogin="checkLoginState();"></fb:login-button>
         
       </span>
     </div>
