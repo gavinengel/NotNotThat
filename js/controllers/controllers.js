@@ -290,9 +290,7 @@ NotNotControllers.controller('TruthController', function ($scope, $location, sto
 
 
   $scope.processTruth = function(){
-
-
-    
+ 
       $scope.notnots.push({
       subject: $scope.notnots[$scope.notnots.length-1].subject,
       not: $scope.notnots[$scope.notnots.length-1].not,
@@ -304,6 +302,7 @@ NotNotControllers.controller('TruthController', function ($scope, $location, sto
     storageService.set('notnot', $scope.notnots);
 
     $location.path('/evolution');
+    return false;
   }
 
 
@@ -356,9 +355,7 @@ NotNotControllers.controller('EvolutionController', function ($scope, $location,
   }
 
 
-  $scope.processNotNot = function (){
-    console.log('in processNotNot');
-  };
+
 
 
 });
