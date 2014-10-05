@@ -270,6 +270,14 @@ NotNotControllers.controller('NotNotController', function ($scope, $location, $h
 
 //  TruthController
 NotNotControllers.controller('TruthController', function ($scope, $location, storageService) {
+  $scope.isaretoggle = "is not";
+          $scope.toggleisare = function(){
+          if ($scope.isaretoggle == "is not") { 
+            $scope.isaretoggle = "are not";
+          }else{
+            $scope.isaretoggle = "is not";
+          }
+        }
 
   //retrieve the notnots
   var notnots = $scope.notnots = storageService.get('notnot');
@@ -281,6 +289,22 @@ NotNotControllers.controller('TruthController', function ($scope, $location, sto
   console.log("l:" + notnots.length);
 
 
+  $scope.processTruth = function(){
+
+
+    
+      $scope.notnots.push({
+      subject: $scope.notnots[$scope.notnots.length-1].subject,
+      not: $scope.notnots[$scope.notnots.length-1].not,
+      isare: $scope.notnots[$scope.notnots.length-1].isare, //look at original comp
+      notnotnot: $scope.notnots[$scope.notnots.length-1].notnotnot,
+      evolution: $scope.evolution
+    });
+
+    storageService.set('notnot', $scope.notnots);
+
+    $location.path('/evolution');
+  }
 
 
   $scope.processNotNot = function (){
@@ -289,4 +313,55 @@ NotNotControllers.controller('TruthController', function ($scope, $location, sto
 
 
 });
+
+
+
+//  EvolutionController
+NotNotControllers.controller('EvolutionController', function ($scope, $location, storageService) {
+  $scope.isaretoggle = "is not";
+          $scope.toggleisare = function(){
+          if ($scope.isaretoggle == "is not") { 
+            $scope.isaretoggle = "are not";
+          }else{
+            $scope.isaretoggle = "is not";
+          }
+        }
+
+  //retrieve the notnots
+  var notnots = $scope.notnots = storageService.get('notnot');
+
+  $scope.Subject = notnots[notnots.length-1].subject; 
+  $scope.IsAre = notnots[notnots.length-1].isare;
+  $scope.Not = notnots[notnots.length-1].not;
+  $scope.NotNotNot = notnots[notnots.length-1].notnotnot;
+  $scope.Evolution = notnots[notnots.length-1].evolution;
+  console.log("l:" + notnots.length);
+
+
+  $scope.processTruth = function(){
+
+
+    
+      $scope.notnots.push({
+      subject: $scope.notnots[$scope.notnots.length-1].subject,
+      not: $scope.notnots[$scope.notnots.length-1].not,
+      isare: $scope.notnots[$scope.notnots.length-1].isare, //look at original comp
+      notnotnot: $scope.notnots[$scope.notnots.length-1].notnotnot,
+      evolution: $scope.evolution
+    });
+
+    storageService.set('notnot', $scope.notnots);
+
+    $location.path('/evolution');
+  }
+
+
+  $scope.processNotNot = function (){
+    console.log('in processNotNot');
+  };
+
+
+});
+
+
 

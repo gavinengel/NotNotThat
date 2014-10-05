@@ -19,6 +19,11 @@ var NotNotApp = angular.module("NotNotApp", ['ngRoute', 'NotNotControllers', 'No
             controller: 'TruthController',
             templateUrl: 'partials/truth.html'
       })
+      .when('/evolution',
+        {
+          controller: 'EvolutionController',
+          templateUrl: 'partials/evolution.html'
+        })
       .otherwise({
         redirectTo: '/'
         });
@@ -27,17 +32,3 @@ var NotNotApp = angular.module("NotNotApp", ['ngRoute', 'NotNotControllers', 'No
 
 
 
-NotNotApp.directive('focusMe', function($timeout) {
-  return {
-    scope: { trigger: '@focusMe' },
-    link: function(scope, element) {
-      scope.$watch('trigger', function(value) {
-        if(value === "true") { 
-          $timeout(function() {
-            element[0].focus(); 
-          });
-        }
-      });
-    }
-  };
-});
