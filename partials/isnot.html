@@ -1,6 +1,6 @@
    
 
-  <form role="form">
+  <form ng-submit="processNotNot();">
     <h2>{{SubjectIsNot}}</h2>
     <br>
     <div ng-click="toggleisare();" class="isare"> 
@@ -13,7 +13,7 @@
 
       <select ng-model="suggestions" selected-item="selected.item" ng-change="setnotnotnot();" ng-options="ant.syn for ant in ants" ng-show="showants" style="width:60%"></select>
   
-      <h3><a href="#/"><button class="btn btn-warning"><span class="glyphicon glyphicon-hand-left"></span>&nbsp;Refactor</button></a><button type="submit" class="btn btn-success" ng-click="processNotNot();">Truth <span class="glyphicon glyphicon-hand-right"></span></button></a></h3>
+      <h3><button type="submit" class="btn btn-success" ng-click="processNotNot();">Truth <span class="glyphicon glyphicon-hand-right"></span></button></a></h3>
   </form>
   
-
+<a href="#/"><button class="btn btn-warning"><span class="glyphicon glyphicon-hand-left"></span>&nbsp;Refactor</button></a>
