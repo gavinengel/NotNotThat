@@ -87,10 +87,11 @@ module.exports = function(passport) {
 
         consumerKey     : configAuth.twitterAuth.consumerKey,
         consumerSecret  : configAuth.twitterAuth.consumerSecret,
-        callbackURL     : configAuth.twitterAuth.callbackURL
+        callbackURL     : configAuth.twitterAuth.callbackURL,
+        passReqToCallback: true
 
     },
-    function(token, tokenSecret, profile, done) {
+    function(req, token, tokenSecret, profile, done) {
 
         // make the code asynchronous
 	// User.findOne won't fire until we have all our data back from Twitter
