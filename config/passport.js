@@ -172,7 +172,8 @@ module.exports = function(passport) {
 					// save our user to the database
 	                newUser.save(function(err) {
 	                    if (err)
-	                        throw err;
+	                        //throw err;
+                            return(err + '');
 
 	                    // if successful, return the new user
 	                    return done(null, newUser);
