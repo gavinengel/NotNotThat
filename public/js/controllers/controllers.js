@@ -1,45 +1,55 @@
 
 
+
+
+
 //controller collection
 var NotNotControllers = angular.module('NotNotControllers', []);
-
-
 
 // Common directive for Focus
 
 angular.module('NotNotApp').directive('focus',
+  function($timeout) {
+    return {
+      scope : {
+      trigger : '@focus'
+      },
 
-function($timeout) {
+    link : function(scope, element) {
+      scope.$watch('trigger', function(value) {
+        if (value === "true") {
+          $timeout(function() {
+            element[0].focus();
+          });
+        }
+      });
+    }};
 
-return {
-
-scope : {
-
- trigger : '@focus'
-
- },
-
- link : function(scope, element) {
- 
- scope.$watch('trigger', function(value) {
-  
-  if (value === "true") {
-   
-   $timeout(function() {
-   
-   element[0].focus();
-
-   });
   }
- });
-   }
-
-  };
-
- }
-
 ); 
-   
+ 
+
+//  loginController
+NotNotControllers.controller('LoginController', function($scope, $http, $location){
+
+  $scope.TwitterLogin = function(){
+  console.log('in LoginController bizatch');
+
+  $http.jsonp('/auth/twitter?callback=JSON_CALLBACK')
+      .success(function(d){
+        for (o in d){
+               console.log ('success');
+        }
+      
+      }).error(function(d) {
+        console.log('error');
+
+      });
+
+
+  }
+});
+
 
 
 //  NotController
@@ -342,8 +352,6 @@ NotNotControllers.controller('EvolutionController', function ($scope, $location,
 
     $location.path('/evolution');
   }
-
-
 
 
 

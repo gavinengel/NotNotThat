@@ -25,13 +25,24 @@ var session      = require('express-session');
 // configuration ===========================================
   
 // config files
-//var db = require('./config/db');
-var configDB = require('./config/database.js'); 
+var db = require('./config/db');
+//var configDB = require('./config/database.js'); 
 
 require('./config/passport')(passport); // pass passport for configuration
 
 var port = process.env.PORT || 8080; // set our port
-// mongoose.connect(db.url); // connect to our mongoDB database (commented out after you enter in your own credentials)
+
+
+ //var db = mongoose.connect(db.url); // connect to our mongoDB database (commented out after you enter in your own credentials)
+
+// Bootstrap db connection
+var db = mongoose.connect(db.url, function(err) {
+  if (err) {
+    console.error('\x1b[31m', 'Could not connect to MongoDB!');
+    console.log(err);
+  }
+});
+
 
 // get all data/stuff of the body (POST) parameters
 app.use(bodyParser.json()); // parse application/json 
