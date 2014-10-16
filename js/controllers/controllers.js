@@ -53,6 +53,9 @@ NotNotControllers.controller('NotController', function ($scope, $http, $location
 
   }
 
+$scope.gohome = function(){
+  alert('gohome');
+};
 
 $scope.IPA();
 
@@ -77,13 +80,13 @@ $scope.IPA();
 
 
   //set the is/are variable
-        $scope.isaretoggle = "is too";
+        $scope.isaretoggle = "is not";
 
         $scope.toggleisare = function(){
-          if ($scope.isaretoggle == "is too") { 
-            $scope.isaretoggle = "are too";
+          if ($scope.isaretoggle == "is not") { 
+            $scope.isaretoggle = "are not";
           }else{
-            $scope.isaretoggle = "is too";
+            $scope.isaretoggle = "is not";
           }
         }
 
@@ -270,12 +273,12 @@ NotNotControllers.controller('NotNotController', function ($scope, $location, $h
 
 //  TruthController
 NotNotControllers.controller('TruthController', function ($scope, $location, storageService) {
-  $scope.isaretoggle = "is too";
+  $scope.isaretoggle = "is not";
           $scope.toggleisare = function(){
-          if ($scope.isaretoggle == "is too") { 
-            $scope.isaretoggle = "are too";
+          if ($scope.isaretoggle == "is not") { 
+            $scope.isaretoggle = "are not";
           }else{
-            $scope.isaretoggle = "is too";
+            $scope.isaretoggle = "is not";
           }
         }
 

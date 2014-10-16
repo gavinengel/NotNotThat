@@ -1,19 +1,19 @@
    
 
-  <form ng-submit="processNotNot();">
+  <form ng- ng-submit="processNotNot();">
     <h2>{{SubjectIsNot}}</h2>
-    <br>
+    <br>&nbsp;
     <div ng-click="toggleisare();" class="isare"> 
       {{isaretoggle}} 
     </div>
     <br>
     <span class="notnotwhat">{{notnotwhat}}</span>
+    <br>&nbsp;
       <input ng-model="notnotnot" focus="true" class="form-control adjective" type="text" placeholder="What?" required>
-      <a href="#/isnot" ng-click="getAntonyms();"><span class="interact">{{suggest}}</span></a>
+    <!--  <a href="#/isnot" ng-click="getAntonyms();"><span class="interact">{{suggest}}</span></a>
 
-      <select ng-model="suggestions" selected-item="selected.item" ng-change="setnotnotnot();" ng-options="ant.syn for ant in ants" ng-show="showants" style="width:60%"></select>
-  
-      <h3><button type="submit" class="btn btn-success" ng-click="processNotNot();">Truth <span class="glyphicon glyphicon-hand-right"></span></button></a></h3>
-  </form>
-  
-<a href="#/"><button class="btn btn-warning"><span class="glyphicon glyphicon-hand-left"></span>&nbsp;Refactor</button></a>
+      <select ng-model="suggestions" selected-item="selected.item" ng-change="setnotnotnot();" ng-options="ant.syn for ant in ants" ng-show="showants" style="width:60%"></select> -->
+
+  <br>&nbsp;<br>
+        <a href="#"><button type="button" class="btn btn-warning" ng-click="alert('bob');"><span class="glyphicon glyphicon-hand-left"></span>&nbsp;Home</button></a><button type="submit" class="btn btn-success">Next <span class="glyphicon glyphicon-hand-right"></span></button></a>  </form>
+<a href="#/">

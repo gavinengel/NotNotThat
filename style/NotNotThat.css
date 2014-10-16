@@ -197,10 +197,16 @@ input{
 }
 
 .subject{
-  color: #EB7F00;
+  color: #225378;
 }
 
+.whitetext{
+  color: white;
+}
 
+.whitetext a a:visited a:hover{
+  color: white;
+}
 .isare {
   border-bottom: 1px solid;
   border-top: 1px solid;
