@@ -55,6 +55,16 @@ NotNotControllers.controller('LoginController', function($scope, $http, $locatio
 //  NotController
 NotNotControllers.controller('NotController', function ($scope, $http, $location, storageService) {
  
+$scope.party = "woohoo";
+     var renderNotNots = function(response){
+      $scope.thenotnots = response;
+    };
+ 
+  //get all the notnots
+ // $http.get("/notnot")
+   // .success(renderNotNots);
+  
+
 
 
   localStorage.clear();
@@ -106,8 +116,18 @@ NotNotControllers.controller('NotController', function ($scope, $http, $location
       var not = $scope.thenot.trim();
       var isare = $scope.isaretoggle
       if (!subject.length) {
-      return;
-    }
+      
+        return;
+
+};
+$http.post('/hegel', {subject: subject, not: not, isare: isare}).
+  success(function(data) {
+    console.log('success' + data);
+
+    
+      console.log(data.hegelid);
+    
+  });
 
     notnots.push({
       subject: subject,
@@ -133,6 +153,7 @@ NotNotControllers.controller('NotController', function ($scope, $http, $location
 
 //  NotController
 NotNotControllers.controller('NotNotController', function ($scope, $location, $http, storageService) {
+
 
   //retrieve the notnots
   $scope.notnots = storageService.get('notnot');

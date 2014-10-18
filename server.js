@@ -33,6 +33,10 @@ require('./config/passport')(passport); // pass passport for configuration
 var port = process.env.PORT || 8080; // set our port
 
 
+
+var Hegel = require('./app/models/hegel');
+
+
  //var db = mongoose.connect(db.url); // connect to our mongoDB database (commented out after you enter in your own credentials)
 
 // Bootstrap db connection
@@ -54,6 +58,7 @@ app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-M
 app.use(express.static(__dirname + '/public')); // set the static files location /public/img will be /img for users
 
 
+var router = express.Router();        // get an instance of the express Router
 
 
 // required for passport
@@ -64,6 +69,41 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 
 // routes ======================================================================
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
+
+
+app.post('/hegel', function(req, res) {
+    
+    var hegel = new Hegel();    // create a new instance of the Bear model
+    hegel.subject = req.body.subject;  // set the bears name (comes from the request)
+    hegel.not = req.body.not;
+    hegel.isare = req.body.isare;
+
+    // save the bear and check for errors
+    hegel.save(function(err) {
+      if (err)
+        res.send(err);
+      //res.setHeader('Content-Type','application/json');
+                  //res.setHeader('Access-Control-Allow-Origin','*');
+                  //res.setHeader('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
+                  //res.writeHead(200);
+      res.json({ hegelid: hegel._id });
+     // res.json({message: "Kevin says:" + req.body.subject});
+    
+    });
+  })
+    
+  .get(function(req, res){
+    Hegel.find(function(err, hegel){
+      if (err)
+        res.send(err);
+        //res.json({ message: 'You are in HEGEL biza !' });
+      for (i in hegel){
+      res.json(hegel[i]._id);
+    };
+    });
+  
+  });
+
 
 
 
