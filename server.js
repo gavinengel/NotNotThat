@@ -10,15 +10,61 @@ console.log('serving at ' + port);
 */
 
 
-// modules =================================================
-var express        = require('express');
-var app            = express();
-var mongoose       = require('mongoose');
-var bodyParser     = require('body-parser');
-var methodOverride = require('method-override');
+
+'use strict';
+/**
+ * Module dependencies.
+ */
+var init = require('./config/init')(),
+  config = require('./config/config'),
+  mongoose = require('mongoose');
+
+/* Bootstrap db connection
+var db = mongoose.connect(db.url, function(err) {
+  if (err) {
+    console.error('\x1b[31m', 'Could not connect to MongoDB!');
+    console.log(err);
+  }
+});
+
+*/
+
+// Bootstrap db connection
+var db = mongoose.connect(config.db, function(err) {
+  if (err) {
+    console.error('\x1b[31m', 'Could not connect to MongoDB!');
+    console.log(err);
+  }
+});
+
+
+var app = require('./config/express')(db);
 
 //from quartermastr
 var passport = require('passport');
+
+
+// Start the app by listening on <port>
+app.listen(config.port);
+
+// Expose app
+exports = module.exports = app;
+
+// Logging initialization
+console.log('MEAN.JS application started on port ' + config.port);
+// modules =================================================
+//var express        = require('express');
+// Init the express application
+
+
+
+/*
+//var app            = express();
+//var mongoose       = require('mongoose');
+var bodyParser     = require('body-parser');
+var methodOverride = require('method-override');
+
+
 var flash    = require('connect-flash');
 var cookieParser = require('cookie-parser');
 var session      = require('express-session');
@@ -39,13 +85,6 @@ var Hegel = require('./app/models/hegel');
 
  //var db = mongoose.connect(db.url); // connect to our mongoDB database (commented out after you enter in your own credentials)
 
-// Bootstrap db connection
-var db = mongoose.connect(db.url, function(err) {
-  if (err) {
-    console.error('\x1b[31m', 'Could not connect to MongoDB!');
-    console.log(err);
-  }
-});
 
 
 // get all data/stuff of the body (POST) parameters
@@ -115,3 +154,4 @@ app.listen(port);
 console.log('Magic happens on port ' + port);       // shoutout to the user
 exports = module.exports = app;             // expose app
 
+*/

@@ -29,11 +29,12 @@ angular.module('NotNotApp').directive('focus',
 ); 
  
 
+/*
 //  loginController
-NotNotControllers.controller('LoginController', function($scope, $http, $location){
+//NotNotControllers.controller('LoginController', function($scope, $http, $location){
 
-  $scope.TwitterLogin = function(){
-  console.log('in LoginController bizatch');
+  //$scope.TwitterLogin = function(){
+  //console.log('in LoginController bizatch');
 
   $http.jsonp('/auth/twitter?callback=JSON_CALLBACK')
       .success(function(d){
@@ -50,7 +51,7 @@ NotNotControllers.controller('LoginController', function($scope, $http, $locatio
   }
 });
 
-
+*/
 
 //  NotController
 NotNotControllers.controller('NotController', function ($scope, $http, $location, storageService) {
