@@ -24,7 +24,9 @@
     "compression": "~1.0.9" ,
     "nodemailer": "~1.1.1",
     "async": "~0.9.0",
-    "swig": "~1.4.1"
+    "swig": "~1.4.1",
+    "passport-github": "~0.1.5",
+    "passport-linkedin": "~0.1.3"    
   }
 }
 

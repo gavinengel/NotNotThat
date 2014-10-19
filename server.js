@@ -40,8 +40,8 @@ var db = mongoose.connect(config.db, function(err) {
 
 var app = require('./config/express')(db);
 
-//from quartermastr
-var passport = require('passport');
+// Bootstrap passport config
+require('./config/passport')();
 
 
 // Start the app by listening on <port>
