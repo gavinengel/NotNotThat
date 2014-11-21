@@ -1,13 +1,13 @@
 
 
 //controller collection
-var NotNotControllers = angular.module('NotNotControllers', []);
+var HegelControllers = angular.module('HegelControllers', []);
 
 
 
 // Common directive for Focus
 
-angular.module('NotNotApp').directive('focus',
+angular.module('HegelApp').directive('focus',
 
 function($timeout) {
 
@@ -43,7 +43,7 @@ scope : {
 
 
 //  NotController
-NotNotControllers.controller('NotController', function ($scope, $http, $location, storageService) {
+HegelControllers.controller('NotController', function ($scope, $http, $location, storageService) {
  
   $scope.IPA = function(){
     $http.jsonp('http://jsonip.com?callback=JSON_CALLBACK')
@@ -134,7 +134,7 @@ $scope.IPA();
 
 
 //  NotController
-NotNotControllers.controller('NotNotController', function ($scope, $location, $http, storageService) {
+HegelControllers.controller('NotNotController', function ($scope, $location, $http, storageService) {
 
   //retrieve the notnots
   $scope.notnots = storageService.get('notnot');
@@ -272,7 +272,7 @@ NotNotControllers.controller('NotNotController', function ($scope, $location, $h
 });
 
 //  TruthController
-NotNotControllers.controller('TruthController', function ($scope, $location, storageService) {
+HegelControllers.controller('TruthController', function ($scope, $location, storageService) {
   $scope.isaretoggle = "is not";
           $scope.toggleisare = function(){
           if ($scope.isaretoggle == "is not") { 
@@ -319,7 +319,7 @@ NotNotControllers.controller('TruthController', function ($scope, $location, sto
 
 
 //  EvolutionController
-NotNotControllers.controller('EvolutionController', function ($scope, $location, storageService) {
+HegelControllers.controller('EvolutionController', function ($scope, $location, storageService) {
   $scope.isaretoggle = "is not";
           $scope.toggleisare = function(){
           if ($scope.isaretoggle == "is not") { 

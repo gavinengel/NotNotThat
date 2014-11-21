@@ -2,7 +2,7 @@
 
 /* Services */
 
-var NotNotServices = angular.module('NotNotServices', []);
+var NotNotServices = angular.module('HegelServices', []);
 
 NotNotServices.factory('storageService', function(){
     console.log("in factory");

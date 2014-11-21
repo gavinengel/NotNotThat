@@ -1,7 +1,7 @@
 
-var NotNotApp = angular.module("NotNotApp", ['ngRoute', 'NotNotControllers', 'NotNotServices']);
+var HegelApp = angular.module("HegelApp", ['ngRoute', 'HegelControllers', 'HegelServices']);
 
-  NotNotApp.config(function($routeProvider){
+  HegelApp.config(function($routeProvider){
 
     $routeProvider
       .when('/',
