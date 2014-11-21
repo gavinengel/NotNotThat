@@ -126,13 +126,12 @@ font-size: 1.8em;
   border-top-right-radius: 0px;
   border-top-left-radius:   0px;
   border-bottom: .5px solid;
-  padding: 10px;
   text-align: center;
   color: #01579B;
 }
 
 .appbody{
-  padding: 12px  font-weight: bold;
+  padding: 8px  font-weight: normal;
   font-size 1.3: 
 }
 .main{
@@ -144,6 +143,7 @@ font-size: 1.8em;
   border-color: #eeeeee;
   border: .5px solid;
   text-align: center;
+  padding: 8px;
 
 }
 
@@ -153,6 +153,10 @@ font-size: 1.8em;
   text-decoration: none;
   font-family: Ubuntu;
   font-weight: bold;
+  border-bottom: 1px solid;
+  border-color: #cccccc;
+  padding: 8px;
+
 
 }
 
@@ -209,7 +213,7 @@ input{
   border-bottom: none;
   border-top: none;
   color: #666;
-  padding: 8px;
+  padding: 0px;
   font-size: 1.8em;
   background: #fff;
 
